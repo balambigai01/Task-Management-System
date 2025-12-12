@@ -2,11 +2,9 @@ import { Task } from "@/types/task";
 import axios from "axios";
 
 
-const BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL ||
-  "https://taskmanagement-seven-alpha.vercel.app";
+const API_URL ="https://taskmanagement-seven-alpha.vercel.app/tasks";
 
-const API_URL = `${BASE_URL}/tasks`;
+
 
 export const getTasks = async (): Promise<Task[]> => {
     try {
