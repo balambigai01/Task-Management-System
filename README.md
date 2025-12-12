@@ -1,86 +1,169 @@
-Task Manager – Full Stack Application
+Task Management System
 
-A modern, full-stack Task Management system built with Next.js, Express.js, MongoDB, and a Python AI microservice for intelligent task classification.
-Designed with clean UI, scalable architecture, and production-ready deployment.
+A full-stack task management system built with:
+
+Frontend: Next.js, TypeScript, Axios
+
+Backend: Node.js, Express.js, MongoDB
+
+Python Microservice: Flask (Task Classification using Text Classification Model)
+
+This project was built as part of an assignment.
 
 🚀 Features
-Core Features
 
-Create, update, and delete tasks
+Create, update, delete tasks
 
-Real-time task filtering by status
+Fetch all tasks and task by ID
 
-Task details with title & description
+AI-powered task classification (Python microservice)
 
-Status options: Pending, In Progress, Completed
-
-Responsive and clean UI with Tailwind CSS
-
-AI Features
-
-Python microservice automatically classifies tasks based on description
-
-Node backend communicates with Python service using REST API
-
-Frontend (Next.js)
-
-Built using Next.js 16
-
-Server & client components
-
-Clean and modular folder structure
-
-API routes for secure backend interaction
+MongoDB database
 
 Fully responsive UI
 
-Backend (Node + Express)
+Optional hosted live demo
 
-RESTful API architecture
+📂 Project Structure
+task_management_system/
+│── frontend/
+│── backend/
+│── python-ai/
+└── README.md
 
-Mongoose models for MongoDB
+🛠️ 1. Frontend Setup (Next.js)
+📌 Requirements
 
-Error handling, validations, async operations
+Node.js (>= 18)
 
-Routes for task CRUD operations
+npm or yarn
 
-Communicates with Python service for AI classification
+📥 Install Dependencies
+cd frontend
+npm install
 
-Python Microservice
+⚙️ Configure Environment Variables
 
-Flask/FastAPI based classifier
+Create .env.local inside the frontend folder:
 
-Receives task description → returns classification
+NEXT_PUBLIC_API_URL=http://localhost:8000
 
-Runs independently but communicates with Node.js
 
-🛠 Tech Stack
-Frontend
+Example:
 
-Next.js 16
+NEXT_PUBLIC_API_URL=https://taskmanagement-seven-alpha.vercel.app
 
-React
+▶️ Run Frontend
+npm run dev
 
-Tailwind CSS
 
-Axios/Fetch
+App runs at:
+👉 http://localhost:3000
 
-Typescript (if used)
-
-Backend
+🔧 2. Backend Setup (Node.js + Express)
+📌 Requirements
 
 Node.js
 
-Express.js
+MongoDB Atlas / Local MongoDB
 
-MongoDB + Mongoose
+📥 Install Dependencies
+cd backend
+npm install
 
-Python AI Service (Flask/FastAPI)
+⚙️ Add Environment Variables
 
-Deployment
+Create a .env file:
 
-Docker
+MONGODB_URL=mongodb+srv://username:password@cluster.mongodb.net
+PORT=8000
 
-Docker Compose
 
-GitHub
+▶️ Run Backend
+npm start
+
+
+Backend runs at:
+👉 http://localhost:8000
+
+🧠 3. Python Microservice Setup (Flask)
+📌 Requirements
+
+Python 3.9+
+
+pip
+
+📥 Install Dependencies
+cd python-ai
+pip install -r requirements.txt
+
+▶️ Run Python Microservice
+python app.py
+
+
+Python API runs at:
+👉 http://127.0.0.1:5000
+
+🔗 4. Connecting Services
+
+Frontend → Backend → Python Microservice
+
+Frontend calls backend:
+/tasks
+
+Backend forwards classification requests to Python:
+/classify
+
+Ensure:
+
+Frontend NEXT_PUBLIC_API_URL is the backend URL
+
+Backend has Python microservice URL in .env like:
+
+PYTHON_API_URL=http://127.0.0.1:5000
+
+🎥 5. Demo Video
+
+A 5-minute demo video is included showing:
+
+Project overview
+
+Features
+
+Flow between services
+
+Task creation & classification
+
+🌐 6. Optional Hosted Demo
+
+Live demo:
+👉 https://task-management-system-w2ye.vercel.app
+
+Backend Hosted:
+👉 https://taskmanagement-seven-alpha.vercel.app
+
+Python Hosted:
+👉 https://task-management-system-bpyc.onrender.com
+
+GitHub Repository:
+👉 https://github.com/balambigai01/task_management_system
+
+✔️ 7. How to Run the Entire System Locally
+
+1️⃣ Start backend:
+
+cd backend && npm start
+
+
+2️⃣ Start python microservice:
+
+cd python-ai && python app.py
+
+
+3️⃣ Start frontend:
+
+cd frontend && npm run dev
+
+🙌 8. Author
+
+Balambigai M

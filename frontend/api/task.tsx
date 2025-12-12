@@ -1,7 +1,12 @@
 import { Task } from "@/types/task";
 import axios from "axios";
 
-const API_URL = "https://taskmanagement-seven-alpha.vercel.app/tasks";
+
+const BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL ||
+  "https://taskmanagement-seven-alpha.vercel.app";
+
+const API_URL = `${BASE_URL}/tasks`;
 
 export const getTasks = async (): Promise<Task[]> => {
     try {
@@ -15,7 +20,7 @@ export const getTasks = async (): Promise<Task[]> => {
 
 export const getTaskById = async (id:string) => {
     try {
-        const res = await axios.get(`${API_URL}/${id}`)
+        const res = await axios.get(`${API_URL}/tasks/${id}`)
         return res.data
     } catch (error) {
         console.log(error)
@@ -34,8 +39,6 @@ export const createTask = async (task: Omit<Task, "_id">): Promise<Task> => {
 
 export const updateTask = async (id:string,task: Partial<Task>):Promise<Task>=> {
     try {
-        console.log("************************************")
-        console.log(id)
         const res = await axios.put(`${API_URL}/${id}`, task)
         console.log("rws",res)
         return res.data
@@ -59,7 +62,6 @@ export const deleteTask = async (id:string): Promise<{ message: string }> => {
 export const classifyTask = async (description: string) => {
     try {
         const res = await axios.post(`${API_URL}/classify`, { description });
-        console.log("************response******",res)
         return res.data;
     } catch (error) {
          console.log(error)
