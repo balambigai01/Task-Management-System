@@ -1,7 +1,7 @@
 import { Task } from "@/types/task";
 import axios from "axios";
 
-const API_URL = "http://localhost:8000/tasks";
+const API_URL = "https://taskmanagement-seven-alpha.vercel.app/";
 
 export const getTasks = async (): Promise<Task[]> => {
     try {
@@ -36,7 +36,7 @@ export const updateTask = async (id:string,task: Partial<Task>):Promise<Task>=> 
     try {
         console.log("************************************")
         console.log(id)
-        const res = await axios.put(`http://localhost:8000/tasks/${id}`, task)
+        const res = await axios.put(`${API_URL}/${id}`, task)
         console.log("rws",res)
         return res.data
     } catch (error) {

@@ -4,13 +4,15 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
+const API_URL = "https://taskmanagement-seven-alpha.vercel.app/";
+
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const router = useRouter();
 
   const handleLogin = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await axios.post("http://localhost:8000/login", { email });
+    await axios.post(`${API_URL}/login`, { email });
     localStorage.setItem("email", email);
     router.push("/dashboard");
   };
