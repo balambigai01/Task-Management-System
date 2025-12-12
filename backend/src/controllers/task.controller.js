@@ -1,4 +1,4 @@
-import connectToDB from "../config/db.js";
+
 import { Task } from "../models/task.model.js";
 import axios from "axios";
 
@@ -28,7 +28,7 @@ export const createTask = async (req, res) => {
 export const getTask = async (req, res) => {
     try {
         const tasks = await Task.find();
-        await connectToDB();
+        // await connectDB()
 
         const priorityOrder = { high: 1, medium: 2, low: 3 };
         const sortedTasks = tasks.toSorted(

@@ -2,11 +2,15 @@ import express from "express";
 import cors from "cors";
 import taskrouter from './routes/task.routes.js'
 import dotenv from "dotenv";
-const app = express()
-
+import { connectDB } from "./config/db.js";
 dotenv.config();
+const app = express()
+console.log("Loaded MONGODB_URL:", process.env.MONGODB_URL);
+
+
 app.use(cors());
 app.use(express.json())
+connectDB();
 
 app.post('/login', (req, res) => {
     const { email } = req.body;
