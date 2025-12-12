@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
-const API_URL = "https://taskmanagement-seven-alpha.vercel.app";
+const API_URL = "https://taskmanagement-seven-alpha.vercel.app/tasks";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
