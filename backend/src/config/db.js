@@ -5,8 +5,6 @@ const DB_URL = process.env.MONGODB_URL
 export const connectDB = async () => {
     try {
         await mongoose.connect(DB_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
   serverSelectionTimeoutMS: 30000, // 30 seconds instead of 10
 });
 
