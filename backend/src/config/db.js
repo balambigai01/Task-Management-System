@@ -6,6 +6,7 @@ let cached = global.mongoose;
 if (!cached) {
   cached = global.mongoose = { conn: null, promise: null };
 }
+console.log("MONGO_URI:", process.env.MONGO_URL);
 
 async function connectToDB() {
   if (cached.conn) return cached.conn;

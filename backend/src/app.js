@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 const app = express()
 
 dotenv.config();
-app.use(cors({ origin: "https://task-management-system-w2ye.vercel.app", credentials: true }));
+app.use(cors());
 app.use(express.json())
 
 app.post('/login', (req, res) => {
